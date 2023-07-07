@@ -34,8 +34,8 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
-                                <img src="https://img.freepik.com/vector-gratis/club-fitness-atletico-duro-emblema-vintage-gimnasio-brazo-culturista-barra_74855-11247.jpg" alt="Imagen de fondo del login" style="width: 500px; height: 400px; float: right;">
+                            <div class="col-lg-6 d-none d-lg-block ">
+                                <img src="https://img.freepik.com/vector-gratis/club-fitness-atletico-duro-emblema-vintage-gimnasio-brazo-culturista-barra_74855-11247.jpg" alt="Imagen de fondo del login" style="width: 450px; height: 400px; float: right;">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
@@ -73,7 +73,7 @@
                                             <input type="password" class="form-control form-control-user" id="em_contrasena" name="em_contrasena" placeholder="Password">
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-warning btn-user btn-block">
                                             Login
                                         </button>
                                     </form>
