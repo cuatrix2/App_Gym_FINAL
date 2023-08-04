@@ -44,7 +44,7 @@ if (isset($_SESSION["em_id"])) {
                                                     <th>Nombre</th>
                                                     <th>Apellido</th>
                                                     <th>Cedula</th>
-                                                    <th>Teléfono</th>
+                                                    <th>Telefono</th>
                                                     <th>Correo</th>
                                                     <th>Rol</th>
                                                     <th>Opciones</th>
@@ -90,16 +90,16 @@ if (isset($_SESSION["em_id"])) {
                                     </div>
                                     <div class="form-group">
                                     <label for="em_apellido" class="control-label">Apellidos</label>
-                                        <input type="text" name="em_apellido" id="em_apellido" class="form-control"  required>
+                                        <input type="text" name="em_apellido" id="em_apellido" class="form-control" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="em_cedula" class="control-label">Cedula</label>
-                                        <input type="text" name="em_cedula" id="em_cedula" class="form-control"  required>
+                                        <input type="text" name="em_cedula" id="em_cedula" class="form-control" required>
                                         <small id="cedulaError" class="text-danger"></small>
                                     </div>
                                     <div class="form-group">
                                     <label for="em_telefono" class="control-label">Telefono</label>
-                                        <input type="text" name="em_telefono" id="em_telefono" class="form-control"  required>
+                                        <input type="text" name="em_telefono" id="em_telefono" class="form-control" required>
                                     </div>
                                     <div class="form-group">
                                     <label for="em_correo" class="control-label">Correo</label>

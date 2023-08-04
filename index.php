@@ -10,7 +10,6 @@
     <meta name="author" content="">
 
     <title>Login</title>
-    <link href="https://svgsilh.com/svg_v2/1048852.svg" rel="icon">
 
     <!-- Custom fonts for this template-->
     <link href="./public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -18,7 +17,15 @@
 
     <!-- Custom styles for this template-->
     <link href="./public/css/sb-admin-2.min.css" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QKP58L7P4D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-QKP58L7P4D');
+</script>
 </head>
 
 <body class="bg-gradient-primary">
@@ -34,8 +41,8 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block ">
-                                <img src="https://img.freepik.com/vector-gratis/club-fitness-atletico-duro-emblema-vintage-gimnasio-brazo-culturista-barra_74855-11247.jpg" alt="Imagen de fondo del login" style="width: 450px; height: 400px; float: right;">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                              <img src="https://img.freepik.com/vector-gratis/club-fitness-atletico-duro-emblema-vintage-gimnasio-brazo-culturista-barra_74855-11247.jpg" alt="Imagen de fondo del login" style="width: 450px; height: 400px; float: right;">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
@@ -73,7 +80,7 @@
                                             <input type="password" class="form-control form-control-user" id="em_contrasena" name="em_contrasena" placeholder="Password">
                                         </div>
 
-                                        <button type="submit" class="btn btn-warning btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
                                     </form>
