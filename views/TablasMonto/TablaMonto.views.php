@@ -58,7 +58,7 @@ if (isset($_SESSION["em_id"])) {
                                                     <th>Datos Cliente</th>
                                                     <th>Fecha</th>
                                                     <th>Membresia</th>
-                                                    <th>Monto</th>
+                                                    <th>Monto "$"</th>
                                                     
                                                 </tr>
                                             </thead>

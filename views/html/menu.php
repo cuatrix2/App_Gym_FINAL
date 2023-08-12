@@ -37,39 +37,83 @@
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
+<!-- Nav Item - Pages Collapse Menu - Usuarios -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="true" aria-controls="collapseTwo">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsuarios"
+        aria-expanded="false" aria-controls="collapseUsuarios">
         <i class="fas fa-fw fa-table"></i>
-        <span>Datos</span>
+        <span>Usuarios</span>
     </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Menu</h6>
-        <?php
-if (error_reporting(0)) {
-    $rol_id = $_SESSION['rol_id'];
-
-    if ($rol_id == '2') {
-        echo '<a class="collapse-item" href="../Clientes/cliente.views.php">Clientes</a>';
-        echo '<a class="collapse-item" href="../Membresias/Membresias.views.php">Membresias Activas</a>';
-        echo '<a class="collapse-item" href="../MembresiaExpirada/Emembresia.views.php">Membresia Expiradas</a>';
-        echo '<a class="collapse-item" href="../Facturas/facturas.views.php">Facturas</a>';
-    } elseif ($rol_id == '1') {
-        echo '<a class="collapse-item" href="../Empleados/empleados.views.php">Empleados</a>';
-        echo '<a class="collapse-item" href="../Clientes/cliente.views.php">Clientes</a>';
-        echo '<a class="collapse-item" href="../Tipo_Membresias/Tipo.Membresias.views.php">Tipo Membresia</a>';
-        echo '<a class="collapse-item" href="../Membresias/Membresias.views.php">Membresias Activas</a>';
-        echo '<a class="collapse-item" href="../MembresiaExpirada/Emembresia.views.php">Membresia Expiradas</a>';
-        echo '<a class="collapse-item" href="../Facturas/facturas.views.php">Facturas</a>';
-        echo '<a class="collapse-item" href="../TablasMonto/TablaMonto.views.php">Tabla Monto</a>';
-    }
-}
-?>
+    <div id="collapseUsuarios" class="collapse" aria-labelledby="headingUsuarios" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Menu</h6>
+            <?php
+             $rol_id = $_SESSION['rol_id'];
+            
+               
+                if ($rol_id == '2') {
+                    echo '<a class="collapse-item" href="../Clientes/cliente.views.php">Clientes</a>';
+                } elseif ($rol_id == '1') {
+                    echo '<a class="collapse-item" href="../Empleados/empleados.views.php">Empleados</a>';
+                    echo '<a class="collapse-item" href="../Clientes/cliente.views.php">Clientes</a>';
+                }
+            
+            ?>
+        </div>
     </div>
-</div>
+</li>
 
-
+<!-- Nav Item - Pages Collapse Menu - Otro Menú -->
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsememmbresia"
+        aria-expanded="false" aria-controls="collapsememmbresia">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Membresias</span>
+    </a>
+    <div id="collapsememmbresia" class="collapse" aria-labelledby="headingmembresia" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Menu</h6>
+            <?php
+            
+                $rol_id = $_SESSION['rol_id'];
+               
+                if ($rol_id == '2') {
+                    echo '<a class="collapse-item" href="../Membresias/Membresias.views.php">Membresias Activas</a>';
+                    echo '<a class="collapse-item" href="../MembresiaExpirada/Emembresia.views.php">Membresia Expiradas</a>';
+                } elseif ($rol_id == '1') {
+                    echo '<a class="collapse-item" href="../Tipo_Membresias/Tipo.Membresias.views.php">Tipo Membresia</a>';
+                    echo '<a class="collapse-item" href="../Membresias/Membresias.views.php">Membresias Activas</a>';
+                    echo '<a class="collapse-item" href="../MembresiaExpirada/Emembresia.views.php">Membresia Expiradas</a>';
+                }
+            
+            ?>
+        </div>
+    </div>
+</li>
+<!-- Nav Item - Pages Collapse Menu - Otro Menú -->
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefac"
+        aria-expanded="false" aria-controls="collapsefac">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Facturación</span>
+    </a>
+    <div id="collapsefac" class="collapse" aria-labelledby="headingmembresia" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Menu</h6>
+            <?php
+            
+                $rol_id = $_SESSION['rol_id'];
+               
+                if ($rol_id == '2') {
+                    echo '<a class="collapse-item" href="../Facturas/facturas.views.php">Facturas</a>';
+                } elseif ($rol_id == '1') {
+                    echo '<a class="collapse-item" href="../Facturas/facturas.views.php">Facturas</a>';
+                    echo '<a class="collapse-item" href="../TablasMonto/TablaMonto.views.php">Tabla Monto</a>';
+                }
+            
+            ?>
+        </div>
+    </div>
 </li>
 
 

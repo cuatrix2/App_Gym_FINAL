@@ -67,6 +67,7 @@ $.ajax({
   contentType: false,
   cache: false,
   success: (respuesta) => {
+    try{
     respuesta = JSON.parse(respuesta);
     console.log(respuesta);
     if (respuesta == "ok") {
@@ -76,6 +77,9 @@ $.ajax({
     } else {
       Swal.fire('Categoria de Empleados', 'Ocurrio un error','danger');
     }
+  }catch(error){
+    Swal.fire('Error', 'No se puede guardar el empleado porque ya se encuentra registrado', 'error');
+  }
   },
 });
 };
@@ -97,6 +101,7 @@ var uno = (em_id) => {
   document.getElementById('titulModalUsuarios').innerHTML = "Editar Empleado";
   $('#modalUsuarios').modal('show');
 };
+/*
 var eliminar = (em_id) => {
   Swal.fire({
       title: 'Empleado',
@@ -120,6 +125,41 @@ var eliminar = (em_id) => {
 
           })
       }
+  })
+};
+*/
+var eliminar = (em_id) => {
+  Swal.fire({
+    title: 'Empleado',
+    text: "¿Está seguro que desea eliminar...???",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Eliminar!!!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.post('../../controllers/empleados.controller.php?op=eliminar', {
+        em_id: em_id
+      }, (res) => {
+        try {
+          res = JSON.parse(res);
+          if (res === 'ok') {
+            Swal.fire('Empleado', 'Se eliminó con éxito', 'success');
+            limpiar();
+            cargaTablaUsuarios();
+          } else if (res === 'clientes_registrados') {
+            Swal.fire('Error', 'No se puede eliminar el empleado porque ha registrado clientes', 'error');
+          } else {
+            Swal.fire('Error', 'Hubo un problema al eliminar el empleado', 'error');
+          }
+        } catch (error) {
+          Swal.fire('Error', 'No se puede eliminar el empleado porque ha registrado clientes', 'error');
+        }
+      }).fail(() => {
+        Swal.fire('Error', 'No se pudo conectar al servidor', 'error');
+      });
+    }
   })
 };
 

@@ -34,9 +34,11 @@ switch ($_GET['op']) {
         $peso = $_POST['cli_peso'];
         $telefono = $_POST['cli_telefono'];
         $direccion = $_POST['cli_direccion'];
+        $correo = $_POST['cli_correo'];
+        $contrasena= $_POST['cli_contrasena'];
         $idempleado = $_POST['id_empleado'];
         $datos = array();
-        $datos = $Cliente->Insertar($cedula, $Nombres, $Apellidos, $fechanacimiento, $genero, $altura, $peso, $telefono, $direccion,$idempleado);
+        $datos = $Cliente->Insertar($cedula, $Nombres, $Apellidos, $fechanacimiento, $genero, $altura, $peso, $telefono, $direccion,$correo,$contrasena,$idempleado);
         echo json_encode($datos);
         break;
 
@@ -51,9 +53,11 @@ switch ($_GET['op']) {
         $peso = $_POST['cli_peso'];
         $telefono = $_POST['cli_telefono'];
         $direccion = $_POST['cli_direccion'];
+        $correo = $_POST['cli_correo'];
+        $contrasena= $_POST['cli_contrasena'];
         $idempleado = $_POST['id_empleado'];
         $datos = array();
-        $datos = $Cliente->Actualizar($idcliente, $cedula, $Nombres, $Apellidos, $fechanacimiento, $genero, $altura, $peso, $telefono, $direccion,$idempleado);
+        $datos = $Cliente->Actualizar($idcliente, $cedula, $Nombres, $Apellidos, $fechanacimiento, $genero, $altura, $peso, $telefono, $direccion,$correo,$contrasena,$idempleado);
         echo json_encode($datos);
         break;
 

@@ -1,7 +1,7 @@
 <?php
 include_once('../../config/sesiones.php');
 if (isset($_SESSION["em_id"])) {
-    $_SESSION["ruta"] = "Clientes";
+    $_SESSION["ruta"] = "Cliente";
    
 ?>
     <!DOCTYPE html>
@@ -25,14 +25,14 @@ if (isset($_SESSION["em_id"])) {
                     <div class="container-fluid">
 
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800"><?php echo $_SESSION["ruta"] ?></h1>
+                            <h1 class="h3 mb-0 text-gray-800">Clientes</h1>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 mb-4">
 
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Lista de <?php echo $_SESSION["ruta"] ?></h6>
+                                        <h6 class="m-0 font-weight-bold text-primary">Clientes Registrados</h6>
                                         <button onclick="" class="btn btn-primary float-right" data-toggle="modal" data-target="#modalCliente"> Nuevo Cliente</button>
                                     </div>
                                     <div class="card-body">
@@ -41,16 +41,16 @@ if (isset($_SESSION["em_id"])) {
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Cedula</th>
+                                                    <th>Cédula</th>
                                                     <th>Nombre</th>
                                                     <th>Apellido</th>
                                                     <th>Fecha nacimiento</th>
                                                     <th>Genero</th>
-                                                    <th>Altura en m</th>
-                                                    <th>Peso en kg</th>
+                                                    <th>Altura (Metros)</th>
+                                                    <th>Peso (KG)</th>
                                                     <th>Teléfono</th>
                                                     <th>Direccion</th>                                     
-                                                    <th>Opciones </th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody id='TablaCliente'></tbody>
@@ -88,7 +88,7 @@ if (isset($_SESSION["em_id"])) {
 
                                     <div class="form-group">
                                         <label for="cli_cedula" class="control-label">Cedula</label>
-                                        <input type="text" name="cli_cedula" id="cli_cedula" class="form-control"  required>
+                                        <input type="text" name="cli_cedula" id="cli_cedula" class="form-control" required>
                                         <small id="cedulaError" class="text-danger"></small>
                                     </div>
 
@@ -99,7 +99,7 @@ if (isset($_SESSION["em_id"])) {
 
                                     <div class="form-group">
                                     <label for="cli_apellido" class="control-label">Apellidos</label>
-                                        <input type="text" name="cli_apellido" id="cli_apellido" class="form-control"  required>
+                                        <input type="text" name="cli_apellido" id="cli_apellido" class="form-control" required>
                                     </div>
 
                                     <div class="form-group">
@@ -117,24 +117,36 @@ if (isset($_SESSION["em_id"])) {
 
 
                                     <div class="form-group">
-                                    <label for="cli_altura" class="control-label">Altura</label>
-                                        <input type="text" name="cli_altura" id="cli_altura" class="form-control"  required>
+                                    <label for="cli_altura" class="control-label">Altura (Metros)</label>
+                                        <input type="text" name="cli_altura" id="cli_altura" class="form-control" required>
                                     </div>
                                     
                                     <div class="form-group">
-                                    <label for="cli_peso" class="control-label">Peso</label>
-                                        <input type="text" name="cli_peso" id="cli_peso" class="form-control"  required>
+                                    <label for="cli_peso" class="control-label">Peso (KG)</label>
+                                        <input type="text" name="cli_peso" id="cli_peso" class="form-control" pattern="[0-9]+(\.[0-9]+)?" minlength="1" maxlength="10" required>
                                     </div>
 
                                     <div class="form-group">
                                     <label for="cli_telefono" class="control-label">Telefono</label>
-                                        <input type="text" name="cli_telefono" id="cli_telefono" class="form-control"  required>
+                                        <input type="text" name="cli_telefono" id="cli_telefono" class="form-control" numeros:  pattern="[0-9]+" minlength="10" maxlength="10"required>
                                     </div>
 
                                     <div class="form-group">
                                     <label for="cli_direccion" class="control-label">Direccion</label>
-                                        <input type="text" name="cli_direccion" id="cli_direccion" class="form-control" required>
-                                    </div>                           
+                                        <input type="text" name="cli_direccion" id="cli_direccion" class="form-control" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}"  maxlength="40"required>
+                                    </div>   
+                                    <div class="form-group">
+                                <label for="cli_correo" class="control-label">Correo</label>
+                                <input type="mail" name="cli_correo" id="cli_correo" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                    <label for="cli_contrasena" class="control-label">Contraseña</label>
+                                    <div class="password-container">
+                                        <input type="password" name="cli_contrasena" id="cli_contrasena" class="form-control" required>
+                                        <img src="https://static.vecteezy.com/system/resources/previews/002/101/686/large_2x/eye-icon-look-and-vision-symbol-eye-logo-design-inspiration-free-vector.jpg" alt="Imagen de contraseña" id="togglePassword">
+                                    </div>
+                                    <div id="mensaje_contrasena"></div>
+                                </div>                        
                                     <input type="hidden" name="id_empleado" id="id_empleado" value="">
                                 </div>
                         <div class="modal-footer">
@@ -151,14 +163,59 @@ if (isset($_SESSION["em_id"])) {
         <?php include_once('../html/scripts.php')  ?>
         <script src="./cliente.js"></script>
         <script>
+            const passwordInput2 = document.getElementById('cli_contrasena');
+            const togglePassword = document.getElementById('togglePassword');
+            const messageElement2 = document.getElementById('mensaje_contrasena');
+
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                togglePassword.textContent = type === 'password' ? 'Mostrar contraseña' : 'Ocultar contraseña';
+            });
+
+
+            passwordInput.addEventListener('input', function() {
+                // Código de validación de contraseña (como se mostró en la respuesta anterior)
+            });
+        </script>
+
+        <script>
+            const passwordInput = document.getElementById('cli_contrasena');
+            const messageElement = document.getElementById('mensaje_contrasena');
+
+            passwordInput.addEventListener('input', function() {
+                const password = passwordInput.value;
+                const regexLowerCase = /[a-z]/;
+                const regexUpperCase = /[A-Z]/;
+                const regexNumbers = /[0-9]/;
+                const regexSpecialChars = /[!@#$%^&*()_+[\]{};':"\\|,.<>/?-]/;
+
+                let message = '';
+                if (password.length > 1) {
+                    if (!regexLowerCase.test(password) || !regexUpperCase.test(password) || !regexNumbers.test(password) ||
+                        !regexSpecialChars.test(password) || password.length < 8) {
+                        message += 'La contraseña debe tener minimo 8 caracteres, un caracter especial y una letra mayúscula.<br>';
+                    }
+                } else if (password.length < 1) {
+                    message += '';
+                }
+
+
+
+                messageElement.innerHTML = message === '' ? '' : '<div style="color:red">' + message + '</div>';
+            });
+        </script>
+    <script>
     // Obtén el valor de $_SESSION['em_id'] y asígnalo a la variable idEmpleado
     var idEmpleado = "<?php echo isset($_SESSION['em_id']) ? $_SESSION['em_id'] : ''; ?>";
 
     // Asigna el valor de idEmpleado al input oculto
-    document.getElementById('id_empleado').value = idEmpleado;
+    document.getElementById('id_empleado').value = idEmpleado;  
 </script>
+
 <script>
- /*-------------------------------------------------------------solo letras------------------------------------*/
+
+/*-------------------------------------------------------------solo letras------------------------------------*/
 // Función para bloquear la entrada de números en un campo de texto
 function blockNumbersInput(inputElement) {
   inputElement.addEventListener('keydown', (event) => {
@@ -255,6 +312,8 @@ blockNonNumbersAndDecimalInput(alturaInputElement);
 
 /*-------------------------------------------------------------FIN------------------------------------*/
 
+
+
         var cedulaInput = document.getElementById("cli_cedula");
         var cedulaError = document.getElementById("cedulaError");
         var btnGuardar = document.getElementById("btnGuardar");
@@ -313,6 +372,10 @@ blockNonNumbersAndDecimalInput(alturaInputElement);
             return resultadoFinal === digitoVerificador;
         }
     </script>
+
+
+
+
     </body>
 
     </html>

@@ -44,7 +44,7 @@ if (isset($_SESSION["em_id"])) {
                                                     <th>Datos Cliente</th>
                                                     <th>Fecha</th>
                                                     <th>Membresia</th>
-                                                    <th>Monto</th>
+                                                    <th>Monto "$"</th>
                                                     <th>Opciones</th>
                                                 </tr>
                                             </thead>
@@ -101,7 +101,7 @@ if (isset($_SESSION["em_id"])) {
                                     </select>
                                 </div>
                                     <div class="form-group">
-                                        <label for="fa_montol_total" class="control-label">Valor a Pagar</label>
+                                        <label for="fa_montol_total" class="control-label">Valor a Pagar "$"</label>
                                         <input type="text" name="fa_montol_total" id="fa_montol_total" class="form-control" readonly />                                      
                                     </div>
                                     <input type="hidden" name="id_empleado" id="id_empleado" value="">
