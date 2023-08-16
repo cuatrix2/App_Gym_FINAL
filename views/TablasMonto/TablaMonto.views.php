@@ -9,9 +9,17 @@ if (isset($_SESSION["em_id"])) {
 
     <head>
         <?php require_once('../html/head.php')  ?>
+        <style>
+            @media print{
+                .no-imprimir{
+                    display: none;
+                }
+            }
+        </style>
+
     </head>
 
-    <body id="page-top">
+    <body id="page-top" >
         <div id="wrapper">
             <!-- Sidebar -->
             <?php require_once('../html/menu.php') ?>
@@ -24,18 +32,21 @@ if (isset($_SESSION["em_id"])) {
 
                     <div class="container-fluid">
 
-                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4"  >
                             <h1 class="h3 mb-0 text-gray-800"><?php echo $_SESSION["ruta"] ?></h1>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 mb-4">
-
-                                <div class="card shadow mb-4">
+                            <button class='btn btn-info no-imprimir' type='button' onclick="ImprimirJavascript()" >
+                                            Imprimir 
+                                        </button>
+                                <div class="card shadow mb-4" id='imprimir'>
                                 <div class="input-group">
                                 <div class="input-group-prepend">
                                         <label class="input-group-text" for="fechaDesdeInput">Fecha Desde:</label>
                                     </div>
                                     <input type="date" class="form-control" id="fechaDesdeInput" aria-label="Search by date" aria-describedby="basic-addon2">
+                                    
                                     
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" for="fechaHastaInput">Fecha Hasta:</label>
@@ -43,13 +54,13 @@ if (isset($_SESSION["em_id"])) {
                                     <input type="date" class="form-control" id="fechaHastaInput" aria-label="Search by date" aria-describedby="basic-addon2">
                                     
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button" onclick="filtrarPorFecha()">
+                                        <button class="btn btn-primary no-imprimir" type="button"  onclick="filtrarPorFecha()">
                                             <i class="fas fa-search fa-sm"></i>
                                         </button>
                                     </div>
                                 </div>
 
-                                    <div class="card-body">
+                                    <div class="card-body" >
 
                                         <table class="table table-bordered table-striped table-responsive">
                                             <thead>
@@ -67,7 +78,7 @@ if (isset($_SESSION["em_id"])) {
                                         <div class="row">
                                             <div class="col-6">
                                                 <label for="sumaMontosInput">Suma Monto :</label>
-                                                <input type="text" id="sumaMontosInput" class="form-control form-control-lg" readonly>
+                                                <input type="text" id="sumaMontosInput" class="form-control form-control-lg"  readonly>
                                             </div>
                                         </div>
                                     </div>

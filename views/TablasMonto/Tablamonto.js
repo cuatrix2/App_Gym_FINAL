@@ -25,6 +25,19 @@ var filtrarPorFecha = () => {
     );
 };
 
+var ImprimirJavascript = ()=>{
+    var contenidoImprimir = document.getElementById('imprimir').innerHTML;
+    var contenidoOriginal = document.body.innerHTML;
+  
+ 
+    document.body.innerHTML = contenidoImprimir;
+    window.print()
+    document.body.innerHTML = contenidoOriginal;
+   
+    
+}
+
+
 var generarTablaFacturas = (listafacturas) => {
     var html = "";
     listafacturas.forEach((factura, index) => {

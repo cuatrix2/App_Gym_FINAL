@@ -31,6 +31,16 @@ class clienteModel
         }
     }
     
+    public function repetido($cliente){
+        $con = new ClaseConexion();
+        $con = $con->ProcedimientoConectar();
+        $cadena = "SELECT count(cli_id) as cli_id FROM `cliente` WHERE cli_id like '%$cliente%'";
+        $datos = mysqli_query($con,$cadena);
+        return $datos;
+
+    }
+
+    
     public function uno($idcliente){
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();

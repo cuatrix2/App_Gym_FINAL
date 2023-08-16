@@ -169,6 +169,12 @@ var finMinutes = ('0' + fechaFin.getMinutes()).slice(-2);
 var formattedFechaFin = finYear + '-' + finMonth + '-' + finDay + 'T' + finHours + ':' + finMinutes;
 fechaFinInput.value = formattedFechaFin;
 }
+
+//repeticion de cliente
+
+
+
+
 </script>
     </body>
 

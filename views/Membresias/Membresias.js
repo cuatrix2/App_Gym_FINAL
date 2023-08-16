@@ -129,7 +129,7 @@ function init() {
           limpiar();
           tablamembresia();
         } else {
-          Swal.fire('Categoria de membresia', 'Ocurrio un error', 'danger');
+          Swal.fire('Categoria de membresia', 'Membresia Repetida', 'danger');
         }
       },
     });
