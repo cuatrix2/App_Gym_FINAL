@@ -80,6 +80,9 @@ if (isset($_SESSION["em_id"])) {
                                                 <label for="sumaMontosInput">Suma Monto :</label>
                                                 <input type="text" id="sumaMontosInput" class="form-control form-control-lg"  readonly>
                                             </div>
+                                           
+
+    
                                         </div>
                                     </div>
                                 </div>
@@ -104,7 +107,9 @@ if (isset($_SESSION["em_id"])) {
         <!--scripts-->
         <?php include_once('../html/scripts.php')  ?>
         
+        
         <script src="./Tablamonto.js"></script>
+        
 
     </body>
 
