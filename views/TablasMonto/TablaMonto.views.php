@@ -40,9 +40,7 @@ if (isset($_SESSION["em_id"])) {
                                 <button class='btn btn-info no-imprimir' id="btn" type='button'>
                                     Imprimir js
                                 </button>
-                                <a href="Imprimir.php" target="_blank" class='btn btn-info no-imprimir'>
-                                    Imprimir
-                                </a>
+                              
                                 <div class="card shadow mb-4" id='imprimir'>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
